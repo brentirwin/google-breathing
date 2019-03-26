@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '1-minute breathing exercise'
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="vertical-align">
+        <div className="App">
+          <Circle />
+          <Text text={this.state.text} />
+        </div>
       </div>
     );
   }
 }
 
 export default App;
+
+const Circle = () => {
+  return (
+    <div id="circle">
+      <div id="triangle">
+      </div>
+    </div>
+  );
+}
+
+const Text = props => {
+  return <div id="text">{props.text}</div>;
+}
